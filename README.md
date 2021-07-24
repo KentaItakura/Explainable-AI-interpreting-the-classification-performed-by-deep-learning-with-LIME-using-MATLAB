@@ -5,12 +5,13 @@ This demo shows how to interpret the classification by CNN using LIME (Local Int
 
 
 
-
-     This demo shows the example with a pre-trained model of ResNet-18 [2]. Please modify this code based on your network. LIME can be utilized for any type of data and this example shows the code for image classification. 
-
-
   
+[Japanese]
+LIME [1]と呼ばれる手法を用いて、深層学習による画像分類を行った際の重要箇所を可視化します。公式の実装とは若干の違いがあるかもしれませんのでご注意ください。  
+サムネイルでは、学習済みネットワーク（ResNet-18 [2]）が、ゴールデンレトリバーと予測したときの判断根拠の位置を可視化しています。
 
+[Key words]
+classification, cnn (convolutional neural network), deep learning, explainable AI, image, interpret, LIME (Local Interpretable Model-agnostic Explanations), machine learning, superpixel, visualization, why
 
 [1] Ribeiro, M.T., Singh, S. and Guestrin, C., 2016, August. " Why should I trust you?" Explaining the predictions of any classifier. In *Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining* (pp. 1135-1144).
 
