@@ -1,19 +1,20 @@
 [![View Explainable AI: interpreting the classification using LIME on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://jp.mathworks.com/matlabcentral/fileexchange/77828-explainable-ai-interpreting-the-classification-using-lime)
 # Explainable AI: interpreting the classification performed by deep learning with LIME
 
-
+**[English]**  
 This demo shows how to interpret the classification by CNN using LIME (Local Interpretable Model-agnostic Explanations) [1]. This demo was created based on [1], but the implementation might be a little bit different from its official one. This code highlights the regions that contributed to the classification.  It helps you interpret and improve the model, or you can recoginize the classifier is not untrustworthy for you if the region highlighted is irrelevant for the true class. 
 
 
 
   
-[Japanese]
+**[Japanese]**  
 LIME [1]と呼ばれる手法を用いて、深層学習による画像分類を行った際の重要箇所を可視化します。公式の実装とは若干の違いがあるかもしれませんのでご注意ください。  
 サムネイルでは、学習済みネットワーク（ResNet-18 [2]）が、ゴールデンレトリバーと予測したときの判断根拠の位置を可視化しています。
 
-[Key words]
+**[Key words]**  
 classification, cnn (convolutional neural network), deep learning, explainable AI, image, interpret, LIME (Local Interpretable Model-agnostic Explanations), machine learning, superpixel, visualization, why
 
+**[Reference]**  
 [1] Ribeiro, M.T., Singh, S. and Guestrin, C., 2016, August. " Why should I trust you?" Explaining the predictions of any classifier. In *Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining* (pp. 1135-1144).
 
 
