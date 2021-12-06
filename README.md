@@ -9,7 +9,8 @@ This demo shows how to interpret the classification by CNN using LIME (Local Int
   
 **[Japanese]**  
 LIME [1]と呼ばれる手法を用いて、深層学習による画像分類を行った際の重要箇所を可視化します。公式の実装とは若干の違いがあるかもしれませんのでご注意ください。  
-サムネイルでは、学習済みネットワーク（ResNet-18 [2]）が、ゴールデンレトリバーと予測したときの判断根拠の位置を可視化しています。
+サムネイルでは、学習済みネットワーク（ResNet-18 [2]）が、ゴールデンレトリバーと予測したときの判断根拠の位置を可視化しています。  
+この内容は、[こちらのブログ（日本語）](https://kentapt.hatenablog.com/entry/2021/12/06/224424?_ga=2.30839223.969068872.1638721409-1601353361.1630730568)にも掲載されています。ぜひご覧ください。
 
 **[Key words]**  
 classification, cnn (convolutional neural network), deep learning, explainable AI, image, interpret, LIME (Local Interpretable Model-agnostic Explanations), machine learning, superpixel, visualization, why
