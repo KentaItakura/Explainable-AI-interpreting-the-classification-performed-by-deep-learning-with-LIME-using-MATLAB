@@ -2,8 +2,9 @@
 
 こちらの記事は、**MATLAB/Simulink Advent Calendar 2021**の8日目の記事として書かれたものです。
 
-https://qiita.com/advent-calendar/2021/matlab
+[https://qiita.com/advent-calendar/2021/matlab](https://qiita.com/advent-calendar/2021/matlab)
 
+  
 # はじめに
 
 この記事では、LIMEとよばれる手法を用いて、畳み込みニューラルネットワーク（CNN）によって画像分類を行ったときの判断根拠の可視化（どのような部分を見て、その分類結果に至ったのか）を行います。画像に対して適用するときの仕組みをここでは説明したいと思います。この画像をもととなる論文はこちらになります： [LIME (Local Interpretable Model-agnostic Explanations)](https://dl.acm.org/doi/abs/10.1145/2939672.2939778) 。 また、[こちら](https://arxiv.org/abs/1602.04938)からも入手することができます。これをMATLAB実装した2020年夏ごろは、公開されている唯一のMATLAB実装だった（と思う）のですが、2020年秋バージョンから`imageLime`という関数が、MATLABで公式実装され、１行で実行できるようになりました。ご自身の研究などで使う際は、[こちらの公式の実装](https://jp.mathworks.com/help/deeplearning/ref/imagelime.html)を使い、そして、その内容を確認したい場合には以下のリポジトリを利用すると良いかもしれません。
@@ -233,6 +234,18 @@ LIMEを画像に適用したときに、論文ではどのような記述がさ�
 
 ここでは、ギターを弾いている人間の頭を犬にして、予測の難しい（できない）画像を入力しています。それのCNNによる予測結果は、電子ギター、アコースティックギター、ラブラドール（スコアの高い上位3つ）となりました。それぞれの予測に対して、どのような箇所が重視されているかをみると、確かに、はじめのギターの方は、ギターの部分が可視化されていますし、ラブラドールと予測した場合は、正しくラブラドールの部分が可視化されています。
 
+# モデルの依存性について
+
+LIMEとは、Local Interpretable Model-agnostic Explanationsのことでした。判断根拠の可視化における、Model-agnosticについて簡単に触れていきたいと思います。
+
+## モデル依存型 (model-specific)
+
+モデル依存型とは、その説明手法が特定のモデルにしか使えないことです。例えば、CNNの分類のときの判断根拠の可視化の有名な手法として、CAMと呼ばれるものがあります (Zhou et al., 2016)。しかし、これはglobal average pooling層を用いて判断根拠の可視化を行っていて、その層を持たないCNNではその判断根拠の可視化の手法を直接使うことはできません。このように、このようにモデル依存型のXAIでは適用できるAIモデルやアルゴリズムが限定されるものの、対象とするAIモデルの構造を十分に活用した説明を出力できる強みがあります（大坪直樹; 中江俊博. XAI(説明可能なAI)）。
+
+## モデル非依存型（model-agnostic）
+
+こちらは、モデルの種類に依存しないもので、今回のLIMEはこちらにあたります。モデル依存型のような、そのモデルの構造の解析などは行わず、対象のモデルをブラックボックスと捉え、データの入力とその出力に関係を見出します。今回のLIMEのようにいかなるモデルにも適用可能なので守備範囲が広いというメリットがあります。
+
 # まとめ
 
 今回は、LIMEによる判断根拠の可視化をMATLABによる実装をもとに説明を試みました。冒頭でも述べましたが、少し実装や理解が間違っているところがあるかもしれないので、もし何かございましたら教えていただけますと幸いです。
@@ -263,3 +276,7 @@ LIMEを画像に適用したときに、論文ではどのような記述がさ�
 [4] [A Review of Different Interpretation Methods (Part 1: Saliency Map, CAM, Grad-CAM)](https://mrsalehi.medium.com/a-review-of-different-interpretation-methods-in-deep-learning-part-1-saliency-map-cam-grad-cam-3a34476bc24d)
 
 [5] [Interpretable Machine Learning with LIME for Image Classification](https://nbviewer.org/url/arteagac.github.io/blog/lime_image.ipynb)
+
+[6] Zhou, B., Khosla, A., Lapedriza, A., Oliva, A. and Torralba, A., 2016. [Learning deep features for discriminative localization.](https://openaccess.thecvf.com/content_cvpr_2016/papers/Zhou_Learning_Deep_Features_CVPR_2016_paper.pdf) In *Proceedings of the IEEE conference on computer vision and pattern recognition* (pp. 2921-2929).
+
+[7] [大坪直樹; 中江俊博. XAI(説明可能なAI) 株式会社リックテレコム.](https://www.amazon.co.jp/dp/B098W4L6DL/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)
